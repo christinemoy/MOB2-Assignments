@@ -12,23 +12,18 @@ class FirstViewController: UIViewController {
     
     @IBOutlet weak var textViewFirst: UITextView!
     
-    let stringConstant = "teststring"
-    let numberConstant = "testnumber"
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let defaults = NSUserDefaults.standardUserDefaults()
-        defaults.setObject("test_string", forKey: stringConstant)
-        defaults.setObject("test_number", forKey: numberConstant)
+        let userDefaults = NSUserDefaults.standardUserDefaults()
         
-        if let stringDefault = defaults.stringForKey(stringConstant)
-        {
-            if let numberDefault = defaults.stringForKey(numberConstant){
-                textViewFirst.text = stringDefault + " " + numberDefault
-            }
+        let string: AnyObject? = userDefaults.objectForKey("test_string")
+        let number: AnyObject? = userDefaults.objectForKey("test_number")
+        
+        let stringAndNumber = "\(string!) \(number!)"
+        
+        textViewFirst.text = stringAndNumber
 
-        }
 
     }
     

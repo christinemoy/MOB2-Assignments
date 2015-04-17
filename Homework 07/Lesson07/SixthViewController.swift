@@ -20,9 +20,8 @@ class SixthViewController: UIViewController {
         var textArray = NSArray(contentsOfURL: pathToFile!)
         var textShow = textArray! as! [String]
         println(textShow)
-        var joinedArray = " ".join(textShow)
-        println(joinedArray)
-        textViewSix.text = joinedArray
+
+        textViewSix.text = "\(textShow)"
         
     }
     
